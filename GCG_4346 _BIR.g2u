@@ -1,0 +1,473 @@
+Program.Sub.ScreenSU.Start
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Variable.Global.iBIRunID.Declare(Long,-1)
+Variable.Global.iBILogID.Declare(Long,-1)
+Variable.UDT.uBOLShip.Define("BIRUNID",Long,"RUNID")
+Variable.UDT.uBOLShip.Define("WAYBILL_NO",String,"WAYBILL_NO")
+Variable.UDT.uBOLShip.Define("PCK_NO",String,"PCK_NO")
+Variable.UDT.uBOLShip.Define("CNTNR_NO",String,"CNTNR_NO")
+Variable.UDT.uBOLShip.Define("CUST_PART",String,"CUST_PART")
+Variable.UDT.uBOLShip.Define("CNTNR_CODE",String,"CNTNR_CODE")
+Variable.UDT.uBOLShip.Define("SEQ",String,"SEQ")
+Variable.UDT.uBOLShip.Define("QTY_ON_LABEL",Float,"QTY_ON_LABEL")
+Variable.UDT.uBOLShip.Define("LBL_CREATE_DATE",Date,"LBL_CREATE_DATE")
+Variable.UDT.uBOLShip.Define("SO_NBR",String,"SO_NBR")
+Variable.UDT.uBOLShip.Define("SO_LINE",String,"SO_LINE")
+Variable.UDT.uBOLShip.Define("CUST_PO",String,"CUST_PO")
+Variable.UDT.uBOLShip.Define("SHIP_INTL_ADDRS",String,"SHIP_INTL_ADDRS")
+Variable.UDT.uBOLShip.Define("SHIP_NAME",String,"SHIP_NAME")
+Variable.UDT.uBOLShip.Define("SHIP_ADDRS1",String,"SHIP_ADDRS1")
+Variable.UDT.uBOLShip.Define("SHIP_ADDRS2",String,"SHIP_ADDRS2")
+Variable.UDT.uBOLShip.Define("SHIP_ADDRS3",String,"SHIP_ADDRS3")
+Variable.UDT.uBOLShip.Define("SHIP_ADDRS4",String,"SHIP_ADDRS4")
+Variable.UDT.uBOLShip.Define("SHIP_ADDRS5",String,"SHIP_ADDRS5")
+Variable.UDT.uBOLShip.Define("SHIP_CITY",String,"SHIP_CITY")
+Variable.UDT.uBOLShip.Define("SHIP_STATE",String,"SHIP_STATE")
+Variable.UDT.uBOLShip.Define("SHIP_ZIP",String,"SHIP_ZIP")
+Variable.UDT.uBOLShip.Define("SHIP_COUNTRY",String,"SHIP_COUNTRY")
+Variable.UDT.uBOLShip.Define("SHIP_ADDRS",String)
+Variable.UDT.uBOLShip.Define("SHIP_DATE",Date,"SHIP_DATE")
+Variable.UDT.uBOLShip.Define("PART",String,"PART")
+Variable.UDT.uBOLShip.Define("LOCN",String,"LOCN")
+Variable.UDT.uBOLShip.Define("PART_DESC",String,"PART_DESC")
+Variable.UDT.uBOLShip.Define("CUST_PART",String,"CUST_PART")
+Variable.UDT.uBOLShip.Define("UM",String,"UM")
+Variable.UDT.uBOLShip.Define("QTY_PKGD",Float,"QTY_PKGD")
+Variable.UDT.uBOLShip.Define("WEIGHT_PKGD",Float,"WEIGHT_PKGD")
+Variable.UDT.uBOLShip.Define("CNTNR_CODE",String,"CNTNR_CODE")
+Variable.UDT.uBOLShip.Define("HM_FLAG",String,"HM_FLAG")
+Variable.UDT.uBOLShip.Define("PALLET_NO",String,"PALLET_NO")
+Variable.UDT.uBOLShip.Define("TRACKING_NO",String,"TRACKING_NO")
+Variable.UDT.uBOLShip.Define("USER_DFND_NO",String,"USER_DFND_NO")
+Variable.UDT.uBOLShip.Define("USER_1",String,"USER_1")
+Variable.UDT.uBOLShip.Define("USER_2",String,"USER_2")
+Variable.UDT.uBOLShip.Define("USER_3",String,"USER_3")
+Variable.UDT.uBOLShip.Define("USER_4",String,"USER_4")
+Variable.UDT.uBOLShip.Define("USER_5",String,"USER_5")
+Variable.UDT.uBOLShip.Define("LOT",String,"LOT")
+Variable.UDT.uBOLShip.Define("BIN",String,"BIN")
+Variable.UDT.uBOLShip.Define("HEAT",String,"HEAT")
+Variable.UDT.uBOLShip.Define("SERIAL",String,"SERIAL")
+Variable.UDT.uBOLShip.Define("LBHS_QTY",Float,"LBHS_QTY")
+Variable.UDT.uBOLShip.Define("LBHS_WEIGHT",Float,"Weight_PKGD")
+Variable.UDT.uBOLShip.Define("LBHS_USER_FLD_1",String,"LBHS_USER_FLD_1")
+Variable.UDT.uBOLShip.Define("LBHS_USER_FLD_2",String,"LBHS_USER_FLD_2")
+Variable.UDT.uBOLShip.Define("LBHS_USER_FLD_3",String,"LBHS_USER_FLD_3")
+Variable.UDT.uBOLShip.Define("LBHS_USER_FLD_4",String,"LBHS_USER_FLD_4")
+Variable.UDT.uBOLShip.Define("LBHS_USER_FLD_5",String,"LBHS_USER_FLD_5")
+Variable.UDT.uBOLShip.Define("LBHS_USER_FLD_6",String,"LBHS_USER_FLD_6")
+Variable.UDT.uBOLShip.Define("LBHS_USER_FLD_7",String,"LBHS_USER_FLD_7")
+Variable.UDT.uBOLShip.Define("LBHS_USER_FLD_8",String,"LBHS_USER_FLD_8")
+Variable.UDT.uBOLShip.Define("LBHS_USER_FLD_9",String,"LBHS_USER_FLD_9")
+Variable.UDT.uBOLShip.Define("Serial_ship",String)
+Variable.UDT.uBOLShip.Define("Carton",String)
+Variable.UDT.uBOLShip.Define("Carrier",String)
+Variable.UDT.uBOLShip.Define("SHIPF_NAME",String)
+Variable.UDT.uBOLShip.Define("SHIPF_add1",String)
+Variable.UDT.uBOLShip.Define("SHIPF_add2",String)
+Variable.UDT.uBOLShip.Define("SHIPF_CITY",String)
+Variable.UDT.uBOLShip.Define("SHIPF_STATE",String)
+Variable.UDT.uBOLShip.Define("SHIPF_ZIP",String)
+Variable.UDT.uBOLShip.Define("SHIPF_COUNTRY",String)
+Variable.UDT.uBOLShip.Define("Cont_r",Long)
+Variable.uGlobal.uBOLShip.Declare("uBOLShip")
+
+
+Variable.Global.bSentinel.Declare(Boolean,False)
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+' RAN 
+' PO 4346 AXID 2252 Quote 8780 BOL Labels created out of Codesoft Ann Suplee 
+' (House of Doolittle)
+
+
+
+F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+F.Intrinsic.Control.CallSub(Loaddata)
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4346_BIR.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Main.End
+
+Program.Sub.Unload.Start
+F.Intrinsic.Control.SetErrorHandler("Unload_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+
+F.ODBC.Connection!con.Close
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Unload_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4346_BIR.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Unload.End
+
+Program.Sub.LoadData.Start
+F.Intrinsic.Control.SetErrorHandler("LoadData_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local.sSql.Declare(String)
+V.Local.iUB.Declare(Long)
+V.Local.CNTNR_CODE.Declare(String)
+
+V.Local.sSO.Declare(String)
+V.Local.sAddres.Declare(String)
+V.Local.sCSZ.Declare(String)
+V.Local.sWayB.Declare(String)
+
+'Getting run ID passed down
+V.Global.iBIRunID.Set(V.Passed.DATA-GAB-0)
+'Getting log ID passed down
+V.Global.iBILogID.Set(V.Passed.DATA-GAB-1)
+'Getting Sentinel flag passed down
+Variable.Global.bSentinel.Set(Variable.Passed.DATA-GAB-2)
+
+V.uGlobal.uBOLShip.Redim(-1,-1)
+
+
+'Loading data from Y table, as being label being printed from Menu, Selecting all fields as all fields are transferred over from Y table to Z table
+F.Intrinsic.String.Build("Select * From Y_OE_SHIP_BOL where RUNID = {0} and UM <> ''",V.Global.iBIRunID,V.Local.sSql)
+F.ODBC.Connection!con.OpenLocalRecordsetRO("rst",V.Local.sSql)
+F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,False)
+	V.Local.sSO.Set(V.ODBC.con!rst.FieldValTrim!SO_Nbr)
+	V.Local.sWayB.Set(V.ODBC.con!rst.FieldValTrim!WayBill_No)
+	V.Local.CNTNR_CODE.Set(V.ODBC.con!rst.FieldValTrim!CNTNR_CODE)
+	
+	
+'	V.Local.sAddres.Set(V.ODBC.con!rst.FieldValTrim!SHIP_ADDRS1)
+'	f.Intrinsic.String.Build("{0}, {1} {2}",V.ODBC.con!rst.FieldValTrim!SHIP_CITY,V.ODBC.con!rst.FieldValTrim!SHIP_STATE,V.ODBC.con!rst.FieldValTrim!SHIP_ZIP,V.Local.sCSZ)
+'	f.Intrinsic.Control.If(V.ODBC.con!rst.FieldValTrim!SHIP_ADDRS2,<>,"")
+'		V.Local.sAddres.Set(V.ODBC.con!rst.FieldValTrim!SHIP_ADDRS2)
+'		f.Intrinsic.Control.If(V.ODBC.con!rst.FieldValTrim!SHIP_ADDRS3,<>,"")
+'			f.Intrinsic.String.Build("{0}{1}{2}{3}",V.Local.sAddres,v.Ambient.NewLine,v.ODBC.con!rst.FieldValTrim!SHIP_ADDRS3,V.Local.sAddres)
+'			f.Intrinsic.Control.If(V.ODBC.con!rst.FieldValTrim!SHIP_ADDRS4,<>,"")
+'				f.Intrinsic.String.Build("{0}{1}{2}{3}",V.Local.sAddres,v.Ambient.NewLine,v.ODBC.con!rst.FieldValTrim!SHIP_ADDRS4,V.Local.sAddres)
+'			f.Intrinsic.Control.EndIf 
+'		f.Intrinsic.Control.EndIf
+'	f.Intrinsic.Control.endif
+'	
+'	f.Intrinsic.Control.If(V.Local.sAddres.Trim,<>,"")
+'		f.Intrinsic.String.Build("{0}{1}{2}",V.Local.sAddres,v.Ambient.NewLine,V.Local.sCSZ,V.Local.sAddres)
+'	f.Intrinsic.Control.Else
+'		V.Local.sAddres.Set(V.Local.sCSZ)
+'	f.Intrinsic.Control.endif	
+	
+
+	f.Intrinsic.Control.If(V.ODBC.con!rst.FieldValTrim!SHIP_ADDRS2,<>,"")
+		f.Intrinsic.Control.If(V.ODBC.con!rst.FieldValTrim!SHIP_ADDRS3,<>,"")
+			f.Intrinsic.Control.If(V.ODBC.con!rst.FieldValTrim!SHIP_ADDRS4,<>,"")
+				V.Local.sAddres.Set("4")
+			f.Intrinsic.Control.Else
+				V.Local.sAddres.Set("3")
+			f.Intrinsic.Control.EndIf 
+		f.Intrinsic.Control.Else
+			V.Local.sAddres.Set("2")
+		f.Intrinsic.Control.EndIf
+	f.Intrinsic.Control.Else
+		V.Local.sAddres.Set("1")
+	f.Intrinsic.Control.endif
+
+
+	F.Intrinsic.Variable.LoadUDTFromRecordset("con","rst","V.uGlobal.uBOLShip",True,0)
+	
+'	v.uGlobal.uBOLShip(0)!SHIP_ADDRS.Set(V.Local.sAddres)
+	
+	F.Intrinsic.Variable.UDTSetMemberValue(V.uGlobal.uBOLShip!SHIP_ADDRS,V.Local.sAddres)
+	
+	F.Intrinsic.Control.CallSub(Getdata,"SO_Nbr",V.Local.sSO,"WayBill_Nbr",V.Local.sWayB)
+	F.ODBC.con!rst.Close
+	
+	'if CNTNR_CODE = "PALLET" 1
+	'if CNTNR_CODE = "TRUCKLOAD" 2
+	'else 0
+	f.Intrinsic.Control.CallSub(generate_code,"WayBill",V.Local.sWayB)
+	
+F.Intrinsic.Control.Else
+	F.Intrinsic.UI.Msgbox("No Records found")
+	F.ODBC.con!rst.Close
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.endif
+
+F.Intrinsic.Control.If(V.uGlobal.uBOLShip.UBound,>,-1)
+    'Checking to see if sequence being printed is Codesoft label
+    Function.Intrinsic.Control.If(Variable.Global.bSentinel,=,True)
+
+        'Stopping Logging
+        F.Global.BI.StopLogging(V.Global.iBILogID)
+
+        'Printing Codesoft label
+        F.Global.BI.PrintCodesoftLabelFromUDT(V.Global.iBIRunID,V.Global.iBILogID,"uGlobal.uBOLShip","","",True)
+    Function.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+'Deleteing Y table records
+F.Intrinsic.String.Build("Delete Y_OE_SHIP_BOL where RUNID = {0}",V.Global.iBIRunID,V.Local.sSql)
+F.ODBC.Connection!con.Execute(V.Local.sSql)
+
+Function.Intrinsic.Control.CallSub(Unload)
+
+
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("LoadData_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4346_BIR.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.LoadData.End
+
+Program.Sub.CallBI.Start
+F.Intrinsic.Control.SetErrorHandler("CallBI_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+
+Variable.Local.iRet.Declare(Long)
+
+Function.Global.BI.RunReportPreProcessor(V.Global.iBIRunID,V.Global.iBILogID,"","","",-1,True,"",-1,"",-1,"","",V.Local.iRet)
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("CallBI_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4346_BIR.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.CallBI.End
+
+Program.Sub.GetData.Start
+F.Intrinsic.Control.SetErrorHandler("GetData_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local.sSQL.Declare(String)
+V.Local.sUfld.Declare(String)
+
+'F.Intrinsic.Debug.InvokeDebugger
+'F.Intrinsic.Debug.Stop
+
+F.Intrinsic.string.build("select Cust_no,Carrier_CD,from_name,from_Adrs1,from_Adrs2,from_city,from_State,from_Zip,from_country,cartons  from BOL_MASTER  where WAYBILL_NO= '{0}' ",V.Args.WayBill_Nbr,V.Local.sSQL)
+F.ODBC.Connection!con.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,False)
+
+'	F.Intrinsic.Variable.UDTSetMemberValue(V.uGlobal.uBOLShip!carrier,V.ODBC.con!rst.FieldValtrim!Carrier_CD)
+
+	F.Intrinsic.Variable.UDTSetMemberValue(V.uGlobal.uBOLShip!Carton,V.ODBC.con!rst.FieldValtrim!cartons)
+ 	F.Intrinsic.Variable.UDTSetMemberValue(V.uGlobal.uBOLShip!SHIPF_NAME,V.ODBC.con!rst.FieldValtrim!from_name)
+	F.Intrinsic.Variable.UDTSetMemberValue(V.uGlobal.uBOLShip!SHIPF_add1,V.ODBC.con!rst.FieldValtrim!from_Adrs1)
+	F.Intrinsic.Variable.UDTSetMemberValue(V.uGlobal.uBOLShip!SHIPF_add2,V.ODBC.con!rst.FieldValtrim!from_Adrs2)
+	F.Intrinsic.Variable.UDTSetMemberValue(V.uGlobal.uBOLShip!SHIPF_CITY,V.ODBC.con!rst.FieldValtrim!from_city)
+	F.Intrinsic.Variable.UDTSetMemberValue(V.uGlobal.uBOLShip!SHIPF_STATE,V.ODBC.con!rst.FieldValtrim!from_State)
+	F.Intrinsic.Variable.UDTSetMemberValue(V.uGlobal.uBOLShip!SHIPF_ZIP,V.ODBC.con!rst.FieldValtrim!from_Zip)
+	F.Intrinsic.Variable.UDTSetMemberValue(V.uGlobal.uBOLShip!SHIPF_COUNTRY,V.ODBC.con!rst.FieldValtrim!from_country)
+
+	F.Intrinsic.string.build("select count(*) as cnt from Y_OE_SHIP_BOL where WAYBILL_NO= '{0}' and RunID = {1} ",V.Args.WayBill_Nbr,V.Global.iBIRunID,V.Local.sSQL)
+	F.ODBC.Connection!con.OpenLocalRecordsetRO("rst2",V.Local.sSQL)
+	F.Intrinsic.Control.If(V.ODBC.con!rst2.EOF,=,False)
+		F.Intrinsic.Variable.UDTSetMemberValue(V.uGlobal.uBOLShip!Cont_r,V.ODBC.con!rst2.FieldVal!cnt)
+	F.Intrinsic.Control.EndIf
+	F.ODBC.con!rst2.close
+	
+	F.Intrinsic.string.build("select SHIP_VIA from V_SHIPMENT_HEADER  where WAY_BILL = '{0}' ",V.Args.WayBill_Nbr,V.Local.sSQL)
+	F.ODBC.Connection!con.OpenLocalRecordsetRO("rst2",V.Local.sSQL)
+	F.Intrinsic.Control.If(V.ODBC.con!rst2.EOF,=,False)
+		F.Intrinsic.Variable.UDTSetMemberValue(V.uGlobal.uBOLShip!Carrier,V.ODBC.con!rst2.FieldVal!SHIP_VIA)
+	F.Intrinsic.Control.EndIf
+	F.ODBC.con!rst2.close
+
+F.Intrinsic.Control.EndIf
+F.ODBC.con!rst.close
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("GetData_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4346_BIR.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.GetData.End
+
+Program.Sub.Generate_Code.Start
+F.Intrinsic.Control.SetErrorHandler("Generate_Code_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local.sSerilaRef.Declare(String)
+V.Local.sRet.Declare(string)
+V.Local.i.Declare(long)
+V.Local.sCond1.Declare(string)
+V.Local.sCond2.Declare(string)
+
+
+F.Intrinsic.Variable.UDTMultiSeek(V.uGlobal.uBOLShip!CNTNR_CODE,"PALLET",V.Local.sRet)
+f.Intrinsic.Control.If(V.Local.sRet,<>,"")
+	f.Intrinsic.Control.CallSub(get_code,"WayBill",v.Args.WayBill,"ExtenDigit",1)
+	F.Intrinsic.Variable.UDTMultiSeekSet(V.uGlobal.uBOLShip!CNTNR_CODE,"PALLET",V.uGlobal.uBOLShip!Serial_ship,v.Args.Retcode)
+'	f.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+'	f.Intrinsic.Control.CallSub(get_code,"waybill",V.Local.sSerilaRef,"ExtenDigit",1)
+'	f.Intrinsic.Control.For(V.Local.i,0,V.Local.sRet.UBound,1)
+'		V.Local.sSerilaRef.Set(V.uGlobal.uBOLShip(v.local.i)!WAYBILL_NO)
+'		'calculation
+'		f.Intrinsic.Control.CallSub(get_code,"waybill",V.Local.sSerilaRef,"ExtenDigit",1)
+'		v.UDT.uBOLShip(v.local.i)!Serial_ship.set(v.Args.Retcode)
+'	f.Intrinsic.Control.Next(V.Local.i)
+f.Intrinsic.Control.endif
+
+F.Intrinsic.Variable.UDTMultiSeek(V.uGlobal.uBOLShip!CNTNR_CODE,"TRUCKLOAD",V.Local.sRet)
+f.Intrinsic.Control.If(V.Local.sRet,<>,"")
+	f.Intrinsic.Control.CallSub(get_code,"WayBill",v.Args.WayBill,"ExtenDigit",2)
+	F.Intrinsic.Variable.UDTMultiSeekSet(V.uGlobal.uBOLShip!CNTNR_CODE,"TRUCKLOAD",V.uGlobal.uBOLShip!Serial_ship,v.Args.Retcode)
+'	f.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+'	f.Intrinsic.Control.For(V.Local.i,0,V.Local.sRet.UBound,1)
+'		V.Local.sSerilaRef.Set(V.uGlobal.uBOLShip(v.local.i)!WAYBILL_NO)
+'		'calculation
+'		f.Intrinsic.Control.CallSub(get_code,"waybill",V.Local.sSerilaRef,"ExtenDigit",2)
+'		v.UDT.uBOLShip(v.local.i)!Serial_ship.set(v.Args.Retcode)
+'	f.Intrinsic.Control.Next(V.Local.i)
+f.Intrinsic.Control.endif
+
+
+F.Intrinsic.String.Build("<>::{0}","PALLET",V.Local.sCond1)
+F.Intrinsic.String.Build("<>::{0}","TRUCKLOAD",V.Local.sCond2)
+	
+F.Intrinsic.Variable.UDTMultiSeek(V.uGlobal.uBOLShip!CNTNR_CODE,V.Local.sCond1,V.uGlobal.uBOLShip!CNTNR_CODE,V.Local.sCond2,V.local.sRet)
+f.Intrinsic.Control.If(V.Local.sRet,<>,"")
+	f.Intrinsic.Control.CallSub(get_code,"WayBill",v.Args.WayBill,"ExtenDigit",0)
+	F.Intrinsic.Variable.UDTMultiSeekSet(V.uGlobal.uBOLShip!CNTNR_CODE,V.Local.sCond1,V.uGlobal.uBOLShip!CNTNR_CODE,V.Local.sCond2,V.uGlobal.uBOLShip!Serial_ship,v.Args.Retcode)
+'	f.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+'	f.Intrinsic.Control.For(V.Local.i,0,V.Local.sRet.UBound,1)
+'		V.Local.sSerilaRef.Set(V.uGlobal.uBOLShip(v.local.i)!WAYBILL_NO)
+'		'calculation
+'		f.Intrinsic.Control.CallSub(get_code,"waybill",V.Local.sSerilaRef,"ExtenDigit",0)
+'		v.UDT.uBOLShip(v.local.i)!Serial_ship.set(v.Args.Retcode)
+'	f.Intrinsic.Control.Next(V.Local.i)
+f.Intrinsic.Control.endif
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Generate_Code_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4346 _BIR.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Generate_Code.End
+
+Program.Sub.Get_Code.Start
+F.Intrinsic.Control.SetErrorHandler("Get_Code_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sSerilaRef.Declare(string)
+V.Local.GS1Prefix.Declare(string,"0040983")
+V.Local.sRet.Declare(String)
+V.local.i.Declare(long)
+V.local.bRet.Declare(boolean)
+V.local.lTot1.Declare(long)
+V.local.lTot3.Declare(long)
+V.local.lTot2.Declare(long)
+V.local.lTot4.Declare(long)
+V.Local.lChkDigit.Declare(long)
+
+'For each of the 17 digits that make up the Extension Digit + Company Prefix + Serial Number, beginning with a 3, multiply every digit by 3 or 1, alternatively.
+'Get a sum of the resulting products. Subtract that sum from the nearest equal or higher multiple of 10.
+
+	
+		f.Intrinsic.String.LPad(V.Args.waybill,"0",9,V.Local.sSerilaRef)
+		
+		F.Intrinsic.String.Build("{0}{1}{2}",v.Args.ExtenDigit,V.Local.GS1Prefix,V.Local.sSerilaRef.trim,V.Local.sRet)
+
+		Function.Intrinsic.String.LimitSplit(V.Local.sRet,1,V.Local.sRet)
+
+		F.Intrinsic.Control.For(V.local.i,0,V.Local.sRet.UBound,1)
+			F.Intrinsic.Control.If(V.local.bRet,=,False)
+				F.Intrinsic.Math.Mult(V.Local.sRet(V.local.i),3,V.local.lTot1)
+				V.local.bRet.set(True)
+			F.Intrinsic.Control.Else
+				F.Intrinsic.Math.Mult(V.Local.sRet(V.local.i),1,V.local.lTot1)
+				V.local.bRet.set(False)
+			F.Intrinsic.Control.endif
+			F.Intrinsic.Math.Add(V.local.lTot3,V.local.lTot1,V.local.lTot3)
+		F.Intrinsic.Control.Next(V.local.i)
+
+'get remainder
+		F.Intrinsic.Math.Mod(V.local.lTot3,10,V.local.lTot2)
+
+'no remainder
+		Function.Intrinsic.Math.IDIV(V.local.lTot3,10,V.local.lTot4)
+		Function.Intrinsic.Math.Mult(V.local.lTot4,10,V.local.lTot4)
+
+'nearest equal or higher multiple of 10 - according to Scott
+		F.Intrinsic.Control.If(V.local.lTot2,>,0)
+			Function.Intrinsic.Math.add(V.local.lTot4,10,V.local.lTot4)
+		F.Intrinsic.Control.EndIf
+
+		f.Intrinsic.Control.If(V.local.lTot3,>,V.local.lTot4)
+			F.Intrinsic.Math.Sub(V.local.lTot3,V.local.lTot4,V.Local.lChkDigit)
+		f.Intrinsic.Control.Else
+			F.Intrinsic.Math.Sub(V.local.lTot4,V.local.lTot3,V.Local.lChkDigit)
+		f.Intrinsic.Control.EndIf
+
+
+		F.Intrinsic.String.Build("00{0}{1}{2}{3}",v.Args.ExtenDigit,V.Local.GS1Prefix,V.Local.sSerilaRef,V.local.lChkDigit.String,V.Local.sSerilaRef)
+
+		Function.Intrinsic.Variable.AddRV("Retcode",V.Local.sSerilaRef)
+		
+F.Intrinsic.Debug.Stop
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Get_Code_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4346 _BIR.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Get_Code.End
+
+Program.Sub.Comments.Start
+${$0$}$$}$Mitch$}$3/25/2014$}$False
+${$4$}$0$}$$}$0$}$-1$}$Ranjit$}$2/10/2017$}$1
+Program.Sub.Comments.End
+
